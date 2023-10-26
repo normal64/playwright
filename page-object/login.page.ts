@@ -11,4 +11,5 @@ export async function fillInputs(page, login: string, password: string) {
 }
 export async function clickLoginButton(page) {
   await page.getByRole("button", { name: " Login" }).click();
+  
 }
