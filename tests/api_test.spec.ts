@@ -4,7 +4,7 @@ import {
   GET_SUCCESS_CODE,
   PUT_SUCCESS_CODE,
   DELETE_SUCCESS_CODE,
-  POST_FAILED_CODE
+  POST_FAILED_CODE,
 } from "./src/resources/constants";
 import {
   GET_URL,
@@ -36,12 +36,13 @@ test("API get request", async ({ request }) => {
   await expect(response.status()).toBe(GET_SUCCESS_CODE);
   const text = await response.text();
   await expect(text).toContain("Lindsay");
-  
 });
 test("API post failed registration", async ({ request }) => {
-  const response = await request.post(REGISTER_URL,user_data.failed_registration_post_data);
+  const response = await request.post(
+    REGISTER_URL,
+    user_data.failed_registration_post_data
+  );
   await expect(response.status()).toBe(POST_FAILED_CODE);
   const text = await response.text();
   await expect(text).toContain("Missing password");
-  
 });
